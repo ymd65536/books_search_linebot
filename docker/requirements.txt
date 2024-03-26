@@ -1,0 +1,10 @@
+Flask==3.0.0
+gunicorn==21.2.0
+line-bot-sdk==3.9.0
+
+# Google Cloud
+google-cloud-bigquery==3.13.0
+
+# LangChain
+langchain-google-vertexai==0.0.3
+langchain==0.1.0
