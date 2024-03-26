@@ -32,7 +32,12 @@ store = BigQueryVectorSearch(
     distance_strategy=DistanceStrategy.EUCLIDEAN_DISTANCE,
 )
 
-all_texts = ["新年度最初の雲勉", "登壇者は山田", "登壇テーマは生成AI"]
+all_texts = [
+    "「AWS認定 高度なネットワーキング専門知識」は2024/03/25に発売されます。本体価格は¥3,600です。",
+    "「Terraformの教科書」は2024年03月21日に発売されました。本体価格は¥3,980です。",
+    "「ChatGPT/LangChainによるチャットシステム構築[実践]入門」は2023年10月18日に発売されました。本体価格は¥3,000です。",
+    "「Azure OpenAI ServiceではじめるChatGPT/LLMシステム構築入門」は2024年1月24日に発売されました。本体価格は¥3,200です。"
+]
 
 metadatas = [{"len": len(t)} for t in all_texts]
 store.add_texts(all_texts, metadatas=metadatas)
