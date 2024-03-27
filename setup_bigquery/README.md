@@ -3,7 +3,7 @@
 ## SetUp
 
 ```bash
-export PROJECT_ID=project_id # GCPのプロジェクトID
+export PROJECT_ID=`gcloud config get-value project`
 export BIGQUERY_DATASET=linebot2
 export BIGQUERY_TABLE=data-table
 export USE_CHAT_MODEL_NAME=gemini-1.0-pro-001
