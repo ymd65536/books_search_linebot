@@ -1,10 +1,6 @@
 import os
 
-from langchain_google_vertexai import VertexAI
-from langchain.chains import RetrievalQA
-
 from langchain_google_vertexai import VertexAIEmbeddings
-
 from langchain.vectorstores.utils import DistanceStrategy
 from langchain_community.vectorstores import BigQueryVectorSearch
 
@@ -33,37 +29,13 @@ store = BigQueryVectorSearch(
 )
 
 all_texts = [
-    "「AWS認定 高度なネットワーキング専門知識」は2024/03/25に発売されます。本体価格は¥3,600です。",
-    "「Terraformの教科書」は2024年03月21日に発売されました。本体価格は¥3,980です。",
-    "「ChatGPT/LangChainによるチャットシステム構築[実践]入門」は2023年10月18日に発売されました。本体価格は¥3,000です。",
-    "「Azure OpenAI ServiceではじめるChatGPT/LLMシステム構築入門」は2024年1月24日に発売されました。本体価格は¥3,200です。"
+    "タイトル:「AWS認定 高度なネットワーキング専門知識」は2024/03/25に発売されます。本体価格は¥3,600です。リンク: https://www.ric.co.jp/book/new-publication/detail/2688",
+    "タイトル:「Terraformの教科書」は2024年03月21日に発売されました。本体価格は¥3,980です。リンク: https://book.mynavi.jp/ec/products/detail/id=142721",
+    "タイトル:「ChatGPT/LangChainによるチャットシステム構築[実践]入門」は2023年10月18日に発売されました。本体価格は¥3,000です。リンク: https://gihyo.jp/book/2023/978-4-297-13839-4",
+    "タイトル:「Azure OpenAI ServiceではじめるChatGPT/LLMシステム構築入門」は2024年1月24日に発売されました。本体価格は¥3,200です。リンク: https://gihyo.jp/book/2024/978-4-297-13929-2"
 ]
 
 metadatas = [{"len": len(t)} for t in all_texts]
 store.add_texts(all_texts, metadatas=metadatas)
 
-retriever = store.as_retriever(
-    search_type="similarity",
-    search_kwargs={"k": NUMBER_OF_RESULTS})
-
-chat = VertexAI(model_name=USE_LLM_MODEL_NAME, temperature=0)
-qa_chain = RetrievalQA.from_chain_type(
-    llm=chat, chain_type="stuff",
-    retriever=retriever
-)
-
-prompt = ""
-
-res = qa_chain.invoke(prompt)
-
-ai_response = f"""
-
-質問内容:
-{res['query']}
-
-回答:
-{res['result']}
-
-"""
-
-print(ai_response)
+print("OK")
