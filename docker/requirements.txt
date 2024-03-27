@@ -4,6 +4,7 @@ line-bot-sdk==3.9.0
 
 # Google Cloud
 google-cloud-bigquery==3.13.0
+google-cloud-secret-manager==2.19.0
 
 # LangChain
 langchain-google-vertexai==0.0.3
