@@ -15,7 +15,7 @@ REGION = "asia-northeast1"
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", "")
 BIGQUERY_TABLE = os.environ.get("BIGQUERY_TABLE", "")
 
-USE_LLM_MODEL_NAME = os.environ.get("USE_LLM_MODEL_NAME", "text-bison-32k@002")
+USE_LLM_MODEL_NAME = os.environ.get("USE_CHAT_MODEL_NAME", "text-bison-32k@002")
 USE_EMBEDDING_MODEL_NAME = os.environ.get(
     "USE_EMBEDDING_MODEL_NAME", "textembedding-gecko@latest")
 
