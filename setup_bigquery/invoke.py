@@ -45,7 +45,7 @@ qa_chain = RetrievalQA.from_chain_type(
 )
 
 prompt = """
-タイトルにChatGPTを含まれる本を教えてください。
+タイトルにChatGPTが含まれる本を教えてください。
 
 回答方法
 番号で箇条書き
